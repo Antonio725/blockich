@@ -1,15 +1,16 @@
 import React from "react";
 import NavigationDropdown from "./NavigationDropdown";
 import { Link } from "react-router-dom";
-import {useLocation} from "react-router";
+import { useLocation } from "react-router";
+import blockchainLogo from "../../assets/icons/blockchain.png"
 
 const Navigation = () => {
 
-    const dropdownItems = [
-        { label: "Home", desc: "Home", link: "/" },
-        { label: "User Profile", desc: "User Profile", link: "/userProfile" },
-        { label: "one", desc: "One", link: "/" },
-        { label: "one", desc: "One", link: "/" }
+    const items = [
+        { label: "Home", desc: "Home page", link: "/" },
+        { label: "User Profile", desc: "Your activity", link: "/userProfile" },
+        { label: "Articles", desc: "All articles", link: "/allArticles" },
+        { label: "Wallet", desc: "Your wallet", link: "/wallet" }
     ];
 
     const location = useLocation();
@@ -22,37 +23,30 @@ const Navigation = () => {
                         <div className=" flex items-center">
                             <div className="hidden md:block">
                                 <div className="ml-10 flex items-baseline space-x-4">
-                                    <Link
-                                        className={`${location.pathname === "/" ? "text-gray-800 " : "text-gray-300" } hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
-                                        to="/">
-                                        Home
-                                    </Link>
-                                    <Link
-                                        className={`${location.pathname === "/userProfile" ? "text-gray-800 " : "text-gray-300" } hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
-                                        to="/userProfile">
-                                        User Profile
-                                    </Link>
-                                    <Link
-                                        className={`${location.pathname === "/allArticles" ? "text-gray-800 " : "text-gray-300" } hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
-                                        to="/allArticles">
-                                        All Articles
-                                    </Link>
-                                    <Link
-                                        className={`${location.pathname === "/wallet" ? "text-gray-800 " : "text-gray-300" } hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium`}
-                                        to="/wallet">
-                                        Wallet
-                                    </Link>
+                                    { items.map(item => {
+                                        return (
+                                            <Link
+                                                className={ `${ location.pathname === item.link ? "text-gray-800 " : "text-gray-300" } hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium` }
+                                                to={ item.link }>
+                                                { item.desc }
+                                            </Link>
+                                        )
+                                    }) }
                                 </div>
                             </div>
                         </div>
                         <div className="block">
                             <div className="ml-4 flex items-center md:ml-6">
+                                <img className="w-10" src={blockchainLogo} alt="blockChainLogo"/>
+                                <div className="ml-2 font-mono font-bold text-2xl">
+                                    Blockich
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="md:hidden">
-                    <NavigationDropdown items={dropdownItems} />
+                    <NavigationDropdown items={ items }/>
                 </div>
             </nav>
         </div>

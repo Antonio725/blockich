@@ -17,7 +17,7 @@ const Navigation = () => {
 
     return (
         <div>
-            <nav className="bg-white dark:bg-gray-800 shadow ">
+            <nav className="bg-white shadow ">
                 <div className="max-w-7xl mx-auto px-8 hidden md:block">
                     <div className="flex items-center justify-between h-16">
                         <div className=" flex items-center">
@@ -26,7 +26,7 @@ const Navigation = () => {
                                     { items.map(item => {
                                         return (
                                             <Link
-                                                className={ `${ location.pathname === item.link ? "text-gray-800 " : "text-gray-300" } hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium` }
+                                                className={ `${ location.pathname === item.link ? "text-gray-800 " : "text-gray-300" } hover:text-gray-800 px-3 py-2 rounded-md text-sm font-medium` }
                                                 to={ item.link }>
                                                 { item.desc }
                                             </Link>

@@ -40,3 +40,12 @@
 button {
   font-size: calc(10px + 2vmin);
 }
+
+#all-articles {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.mt-8 {
+  margin-bottom: 80px;
+}

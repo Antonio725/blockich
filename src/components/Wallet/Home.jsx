@@ -1,9 +1,8 @@
+import React from "react";
 import WalletBalance from "./WalletBalance";
 
 function Home() {
-    return (
-        <WalletBalance/>
-    );
+  return <WalletBalance />;
 }
 
 export default Home;

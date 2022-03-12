@@ -1,28 +1,9 @@
-import Install from "./components/wallet/Install";
-import Home from "./components/wallet/Home";
+import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Navigation from "./components/Navigation/Navigation";
-import ProfilePage from "./components/ProfilePage/ProfilePage";
-import HomePage from "./components/HomePage/HomePage";
-import AllPostsPage from "./components/AllPostsPage/AllPostsPage";
-import NewPostForm from "./components/NewPostForm/NewPostForm";
-
+import { AppRouter } from "./components/Router/AppRouter";
 
 function App() {
-    return (
-        <>
-            <Router>
-                <Routes>
-                    <Route path="/" element={ <><Navigation/><HomePage/></> }/>
-                    <Route path="/allArticles" element={ <><Navigation/><AllPostsPage/></> }/>
-                    <Route path="/userProfile" element={ <><Navigation/><ProfilePage/></> }/>
-                    <Route path="/wallet" element={ <><Navigation/>{ window.ethereum ? <Home/> : <Install/> }</> }/>
-                    <Route path="/newPost" element={ <><Navigation/><NewPostForm/></> }/>
-                </Routes>
-            </Router>
-        </>
-    );
+  return <AppRouter />;
 }
 
 export default App;

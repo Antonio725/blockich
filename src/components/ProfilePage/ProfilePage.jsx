@@ -1,6 +1,7 @@
 import React from "react";
 import ProfilePagePostTable from "./ProfilePageArticleTable/ProfilePageArticleTable";
 import { data } from "../../data/ProfilePageTableData";
+import AccountAddress from "../Wallet/AccountAddress";
 
 const ProfilePage = () => {
   return (
@@ -13,7 +14,7 @@ const ProfilePage = () => {
         </div>
         <div className="flex justify-between md:pl-56 pt-12 md:pt-10 mx-4 md:mx-0">
           <div className="text-gray-400 font-semibold text-xl mt-4 md:mt-0">
-            @LukaVojnovic
+            <AccountAddress />
           </div>
           <div className="flex items-end">
             <div className="ml-8 px-4 py-1 md:py-2 bg-indigo-600 text-white text-center text-base font-semibold shadow-md rounded-full">

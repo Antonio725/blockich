@@ -10,12 +10,14 @@ import PreviewPage from "../PreviewPage/PreviewPage";
 import {
   ALL_POSTS_PAGE,
   HOME_PAGE,
+  NEW_POST_PAGE,
   PAGE_NOT_FOUND,
   POST_PREVIEW_PAGE,
   USER_PROFILE_PAGE,
   WALLET_PAGE,
 } from "./Routes";
 import PageNotFound from "../PageNotFound";
+import NewPostForm from "../NewPostForm/NewPostForm";
 
 export const AppRouter = () => {
   return (
@@ -72,6 +74,15 @@ export const AppRouter = () => {
             <>
               <Navigation />
               <PreviewPage />
+            </>
+          }
+        />
+        <Route
+          path={NEW_POST_PAGE}
+          element={
+            <>
+              <Navigation />
+              <NewPostForm />
             </>
           }
         />

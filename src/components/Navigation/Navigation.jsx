@@ -6,6 +6,7 @@ import blockchainLogo from "../../assets/icons/blockchain.png";
 import {
   ALL_POSTS_PAGE,
   HOME_PAGE,
+  NEW_POST_PAGE,
   USER_PROFILE_PAGE,
   WALLET_PAGE,
 } from "../Router/Routes";
@@ -43,6 +44,12 @@ const Navigation = () => {
                       </Link>
                     );
                   })}
+                  <Link
+                    className="py-2 px-4 justify-end bg-pink-600 hover:bg-pink-700 focus:ring-pink-500 focus:ring-offset-pink-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full"
+                    to={NEW_POST_PAGE}
+                  >
+                    New Post
+                  </Link>
                 </div>
               </div>
             </div>

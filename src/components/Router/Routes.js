@@ -4,6 +4,7 @@ export const USER_PROFILE_PAGE = "user-profile/:profileId";
 export const WALLET_PAGE = "/wallet";
 export const POST_PREVIEW_PAGE = "/preview/:postId";
 export const PAGE_NOT_FOUND = "*";
+export const NEW_POST_PAGE = "/new-post";
 
 export const generatePostPreviewLink = (postId) => {
   return POST_PREVIEW_PAGE.replace(":postId", postId);

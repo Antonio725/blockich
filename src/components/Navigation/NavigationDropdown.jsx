@@ -1,15 +1,23 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router";
 import blockchainLogo from "../../assets/icons/blockchain.png";
+import {
+  ALL_POSTS_PAGE,
+  HOME_PAGE,
+  NEW_POST_PAGE,
+  USER_PROFILE_PAGE,
+  WALLET_PAGE,
+} from "../Router/Routes";
+import { Link } from "react-router-dom";
 
 const NavigationDropdown = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const linkMap = new Map([
-    ["/", "Home"],
-    ["/userProfile", "User profile"],
-    ["/allArticles", "All articles"],
-    ["/wallet", "Wallet"],
+    [HOME_PAGE, "Home"],
+    [USER_PROFILE_PAGE, "User profile"],
+    [ALL_POSTS_PAGE, "All articles"],
+    [WALLET_PAGE, "Wallet"],
   ]);
 
   const location = useLocation();
@@ -71,6 +79,15 @@ const NavigationDropdown = (props) => {
                 </a>
               );
             })}
+            <div className="py-2 px-4 mt-4">
+              <Link
+                role="menuitem"
+                className="py-2 px-4 bg-pink-600 hover:bg-pink-700 focus:ring-pink-500 focus:ring-offset-pink-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full"
+                to={NEW_POST_PAGE}
+              >
+                New Post
+              </Link>
+            </div>
           </div>
         </div>
       )}

@@ -30,7 +30,7 @@ const ProfilePage = () => {
                 </div>
                 <div className="mt-12 md:mt-24 mx-4 md:mx-0">
                     <div className="text-lg text-gray-900 text-2xl font-semibold uppercase">Posts</div>
-                    <ProfilePagePostTable data={data} />
+                    <ProfilePagePostTable data={ data }/>
                 </div>
             </div>
         </div>

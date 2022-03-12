@@ -6,21 +6,23 @@ import Navigation from "./components/Navigation/Navigation";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import HomePage from "./components/HomePage/HomePage";
 import AllPostsPage from "./components/AllPostsPage/AllPostsPage";
+import NewPostForm from "./components/NewPostForm/NewPostForm";
 
 
 function App() {
-  return (
-      <>
-        <Router>
-          <Routes>
-            <Route path="/" element={<><Navigation /><HomePage /></>} />
-            <Route path="/allArticles" element={<><Navigation /><AllPostsPage /></>} />
-            <Route path="/userProfile" element={<><Navigation /><ProfilePage /></>} />
-            <Route path="/wallet" element={<><Navigation />{window.ethereum ? <Home /> : <Install />}</>} />
-          </Routes>
-        </Router>
-      </>
-  );
+    return (
+        <>
+            <Router>
+                <Routes>
+                    <Route path="/" element={ <><Navigation/><HomePage/></> }/>
+                    <Route path="/allArticles" element={ <><Navigation/><AllPostsPage/></> }/>
+                    <Route path="/userProfile" element={ <><Navigation/><ProfilePage/></> }/>
+                    <Route path="/wallet" element={ <><Navigation/>{ window.ethereum ? <Home/> : <Install/> }</> }/>
+                    <Route path="/newPost" element={ <><Navigation/><NewPostForm/></> }/>
+                </Routes>
+            </Router>
+        </>
+    );
 }
 
 export default App;

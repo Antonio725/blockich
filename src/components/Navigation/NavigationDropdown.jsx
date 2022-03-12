@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router";
 import blockchainLogo from "../../assets/icons/blockchain.png"
+import { Link } from "react-router-dom";
 
 const NavigationDropdown = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -37,7 +38,7 @@ const NavigationDropdown = (props) => {
                     </svg>
                 </button>
                 <div className="mr-4 flex items-center md:ml-6">
-                    <img className="w-10" src={blockchainLogo} alt="blockChainLogo"/>
+                    <img className="w-10" src={ blockchainLogo } alt="blockChainLogo"/>
                     <div className="ml-2 font-mono font-bold text-2xl">
                         Blockich
                     </div>
@@ -55,9 +56,9 @@ const NavigationDropdown = (props) => {
                     >
                         { props.items.map((item) => {
                             return (
-                                <a
+                                <Link
                                     key={ item.label }
-                                    href={ item.link || "#" }
+                                    to={ item.link || "#" }
                                     className={ `${
                                         item.icon ? "flex items-center" : "block"
                                     } block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600` }
@@ -69,9 +70,17 @@ const NavigationDropdown = (props) => {
                                         <span>{ item.label }</span>
                                         { item.desc && <span className="text-gray-400 text-xs">{ item.desc }</span> }
                                     </span>
-                                </a>
+                                </Link>
                             );
                         }) }
+                        <div className="py-2 px-4 mt-4">
+                            <Link
+                                role="menuitem"
+                                className="py-2 px-4 bg-pink-600 hover:bg-pink-700 focus:ring-pink-500 focus:ring-offset-pink-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full"
+                                to="/newPost">
+                                New Post
+                            </Link>
+                        </div>
                     </div>
                 </div>
             ) }

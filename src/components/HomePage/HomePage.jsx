@@ -5,9 +5,7 @@ const HomePage = () => {
     return (
         <div className="md:px-4 pb-4 bg-gray-50 justify-center">
             <div className="w-full md:w-4/5 mx-auto">
-
-
-                {!window.ethereum ?
+                { !window.ethereum ?
                     <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
                         <h2 className="text-3xl font-extrabold text-black sm:text-4xl">
                             <span className="block">
@@ -19,35 +17,29 @@ const HomePage = () => {
                         </h2>
                         <div className="lg:mt-0 lg:flex-shrink-0">
                             <div className="mt-12 inline-flex rounded-md shadow">
-                                <a  className="py-4 px-6  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg " href="https://metamask.io/download.html">Download Metamask</a>
+                                <a className="py-4 px-6  bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                                   href="https://metamask.io/download.html">Download Metamask</a>
                             </div>
                         </div>
                     </div>
                     : <div className="text-center w-full mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
-                    <h2 className="text-3xl font-extrabold text-black sm:text-4xl">
+                        <h2 className="text-3xl font-extrabold text-black sm:text-4xl">
                         <span className="block">
                             Metamask detected!
                         </span>
-                        <span className="block text-indigo-500">
+                            <span className="block text-indigo-500">
                             
                         </span>
-                    </h2>
-                    <div className="lg:mt-0 lg:flex-shrink-0">
-                        <div className="mt-12 inline-flex rounded-md shadow">
-                            <WalletBalance />
+                        </h2>
+                        <div className="lg:mt-0 lg:flex-shrink-0">
+                            <div className="mt-12 inline-flex rounded-md shadow">
+                                <WalletBalance/>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                    
                 }
-
-
-                <hr className="mt-6" />
-
+                <hr className="mt-6"/>
                 <h3 className="mt-6 text-center text-gray-500">Recent Posts</h3>
-
-
                 <div className="bg-lightblue py-20 px-4">
                     <div className="mx-auto max-w-6xl flex flex-col md:flex-row justify-center">
 
@@ -67,7 +59,10 @@ const HomePage = () => {
 
                                     <dd className="mb-3">
                                         <p>
-                                            Running existing machine learning projects in Valohai is very simple! Integration only requires adding a valohai.yaml configuration file. Moving projects in and out of Valohai is easy – the integration is only the configuration file.
+                                            Running existing machine learning projects in Valohai is very simple!
+                                            Integration only requires adding a valohai.yaml configuration file. Moving
+                                            projects in and out of Valohai is easy – the integration is only the
+                                            configuration file.
                                         </p>
                                     </dd>
                                     <div className="flex justify-end mb-16">
@@ -99,7 +94,10 @@ const HomePage = () => {
 
                                     <dd className="mb-3">
                                         <p>
-                                            Running existing machine learning projects in Valohai is very simple! Integration only requires adding a valohai.yaml configuration file. Moving projects in and out of Valohai is easy – the integration is only the configuration file.
+                                            Running existing machine learning projects in Valohai is very simple!
+                                            Integration only requires adding a valohai.yaml configuration file. Moving
+                                            projects in and out of Valohai is easy – the integration is only the
+                                            configuration file.
                                         </p>
                                     </dd>
                                     <div className="flex justify-end mb-16">
@@ -131,7 +129,10 @@ const HomePage = () => {
 
                                     <dd className="mb-3">
                                         <p>
-                                            Running existing machine learning projects in Valohai is very simple! Integration only requires adding a valohai.yaml configuration file. Moving projects in and out of Valohai is easy – the integration is only the configuration file.
+                                            Running existing machine learning projects in Valohai is very simple!
+                                            Integration only requires adding a valohai.yaml configuration file. Moving
+                                            projects in and out of Valohai is easy – the integration is only the
+                                            configuration file.
                                         </p>
                                     </dd>
                                     <div className="flex justify-end mb-16">
@@ -151,8 +152,6 @@ const HomePage = () => {
                         </dl>
                     </div>
                 </div>
-
-
             </div>
         </div>
     )

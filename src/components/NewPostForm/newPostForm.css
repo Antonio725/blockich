@@ -1,0 +1,26 @@
+.newPostFile::-webkit-file-upload-button {
+    display: none;
+}
+
+.newPostFile::before {
+    content: "Select a file" !important;
+    display: inline-block;
+    border: #047857 2px solid;
+    border-radius: 0.375rem;
+    padding: 10px 10px;
+    outline: none;
+    color: #047857;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 10pt;
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 rgba(0 0 0 0.05);
+    margin-right: 10px;
+    transition: background-color 0.8s, color 0.8s;
+}
+
+.newPostFile:hover::before {
+    color: white;
+    background-color: #059669;
+}

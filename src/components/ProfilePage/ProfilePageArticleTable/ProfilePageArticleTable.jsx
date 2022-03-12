@@ -33,45 +33,45 @@ const ProfilePageArticleTable = (props) => {
                             </tr>
                             </thead>
                             <tbody>
-                            {props.data.map(item => {
+                            { props.data.map(item => {
                                 return (
                                     <tr>
                                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <div className="ml-3">
                                                 <p className="text-gray-900 whitespace-no-wrap">
-                                                    {item.fullName}
+                                                    { item.fullName }
                                                 </p>
                                             </div>
                                         </td>
                                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                                {item.title}
+                                                { item.title }
                                             </p>
                                         </td>
                                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                                {item.role}
+                                                { item.role }
                                             </p>
                                         </td>
                                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                                {item.createdAt}
+                                                { item.createdAt }
                                             </p>
                                         </td>
                                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                      <span
-                          className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                          <span aria-hidden="true"
-                                className={`${item.status === "ACTIVE" ? "absolute inset-0 bg-green-200 opacity-50 rounded-full" : "absolute inset-0 bg-red-200 opacity-50 rounded-full"}`}>
-                          </span>
-                          <span className="relative">
-                              {item.status}
-                          </span>
-                      </span>
+                                              <span
+                                                  className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                                  <span aria-hidden="true"
+                                                        className={ `${ item.status === "ACTIVE" ? "absolute inset-0 bg-green-200 opacity-50 rounded-full" : "absolute inset-0 bg-red-200 opacity-50 rounded-full" }` }>
+                                                  </span>
+                                                  <span className="relative">
+                                                      { item.status }
+                                                  </span>
+                                              </span>
                                         </td>
                                     </tr>
                                 );
-                            })}
+                            }) }
                             </tbody>
                         </table>
                         <div className="px-5 bg-white py-5 flex flex-col xs:flex-row items-center xs:justify-between">

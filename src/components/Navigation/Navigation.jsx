@@ -32,12 +32,17 @@ const Navigation = () => {
                                             </Link>
                                         )
                                     }) }
+                                    <Link
+                                        className="py-2 px-4 justify-end bg-pink-600 hover:bg-pink-700 focus:ring-pink-500 focus:ring-offset-pink-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full"
+                                        to="/newPost">
+                                        New Post
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                         <div className="block">
                             <div className="ml-4 flex items-center md:ml-6">
-                                <img className="w-10" src={blockchainLogo} alt="blockChainLogo"/>
+                                <img className="w-10" src={ blockchainLogo } alt="blockChainLogo"/>
                                 <div className="ml-2 font-mono font-bold text-2xl">
                                     Blockich
                                 </div>

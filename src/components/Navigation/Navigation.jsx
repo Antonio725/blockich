@@ -3,13 +3,19 @@ import NavigationDropdown from "./NavigationDropdown";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router";
 import blockchainLogo from "../../assets/icons/blockchain.png";
+import {
+  ALL_POSTS_PAGE,
+  HOME_PAGE,
+  USER_PROFILE_PAGE,
+  WALLET_PAGE,
+} from "../Router/Routes";
 
 const Navigation = () => {
   const items = [
-    { label: "Home", desc: "Home page", link: "/" },
-    { label: "User Profile", desc: "Your activity", link: "/userProfile" },
-    { label: "Articles", desc: "All articles", link: "/allArticles" },
-    { label: "Wallet", desc: "Your wallet", link: "/wallet" },
+    { label: "Home", desc: "Home page", link: HOME_PAGE },
+    { label: "User Profile", desc: "Your activity", link: USER_PROFILE_PAGE },
+    { label: "Articles", desc: "All articles", link: ALL_POSTS_PAGE },
+    { label: "Wallet", desc: "Your wallet", link: WALLET_PAGE },
   ];
 
   const location = useLocation();

@@ -1,32 +1,16 @@
-import process from "process";
-import minimist from "minimist";
-import { Web3Storage, getFilesFromPath } from "web3.storage";
+import {
+  getFilesFromPath,
+  Web3Storage,
+} from "web3.storage/dist/bundle.esm.min.js";
 
-async function main() {
-  const args = minimist(process.argv.slice(2));
-  const token = args.token;
+export async function putFile(files) {
+  const client = new Web3Storage({
+    token: import.meta.env.VITE_WEB3STORAGE_TOKEN,
+  });
 
-  if (!token) {
-    return console.error(
-      "A token is needed. You can create one on https://web3.storage"
-    );
-  }
+  // const file = getFilesFromPath(path);
+  // console.log(file);
+  // const file = [new File(["hello world"], "hello.txt", { type: "text/plain" })];
 
-  if (args._.length < 1) {
-    return console.error("Please supply the path to a file or directory");
-  }
-
-  const storage = new Web3Storage({ token });
-  const files = [];
-
-  for (const path of args._) {
-    const pathFiles = await getFilesFromPath(path);
-    files.push(...pathFiles);
-  }
-
-  console.log(`Uploading ${files.length} files`);
-  const cid = await storage.put(files);
-  console.log("Content added with CID:", cid);
+  return await client.put(files);
 }
-
-main();

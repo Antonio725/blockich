@@ -30,6 +30,12 @@
         {
           "indexed": false,
           "internalType": "string",
+          "name": "fileName",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
           "name": "url",
           "type": "string"
         },
@@ -131,6 +137,11 @@
         },
         {
           "internalType": "string",
+          "name": "_fileName",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
           "name": "_url",
           "type": "string"
         }
@@ -176,6 +187,11 @@
         {
           "internalType": "string",
           "name": "description",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "fileName",
           "type": "string"
         },
         {

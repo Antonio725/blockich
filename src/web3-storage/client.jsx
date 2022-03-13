@@ -1,4 +1,4 @@
-import { Web3Storage } from "web3.storage";
+import { Web3Storage } from "web3.storage/dist/bundle.esm.min.js";
 
 function getAccessToken() {
   // If you're just testing, you can paste in a token
@@ -16,17 +16,6 @@ function getAccessToken() {
 
 function makeStorageClient() {
   return new Web3Storage({ token: getAccessToken() });
-}
-
-async function retrieve(cid) {
-  const client = makeStorageClient();
-  const res = await client.get(cid);
-  console.log(`Got a response! [${res.status}] ${res.statusText}`);
-  if (!res.ok) {
-    throw new Error(`failed to get ${cid}`);
-  }
-
-  // request succeeded! do something with the response object here...
 }
 
 async function retrieveFiles(cid) {

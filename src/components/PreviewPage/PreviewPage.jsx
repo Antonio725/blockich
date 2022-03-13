@@ -25,7 +25,9 @@ export const PreviewPage = () => {
       <hr className="mt-4 my-6" />
       <DocumentPreviewer
         className="h-screen"
-        source={"https://pdcrodas.webs.ull.es/fundamentos/EmersonNature.pdf"}
+        source={
+          "http://bafybeiaf522jjkcoow4ktdxp2fqd7dwrqp2lncweku3d7duj2utyxbatm4.ipfs.dweb.link/Chinese Philosophy (Lai).pdf"
+        }
         // source={null}
       />
       <hr className="mt-6 mb-3" />

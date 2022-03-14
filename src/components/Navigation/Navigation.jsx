@@ -5,16 +5,20 @@ import { useLocation } from "react-router";
 import blockchainLogo from "../../assets/icons/blockchain.png";
 import {
   ALL_POSTS_PAGE,
+  generateUserProfileLink,
   HOME_PAGE,
   NEW_POST_PAGE,
-  USER_PROFILE_PAGE,
   WALLET_PAGE,
 } from "../Router/Routes";
 
 const Navigation = () => {
   const items = [
     { label: "Home", desc: "Home page", link: HOME_PAGE },
-    { label: "User Profile", desc: "Your activity", link: USER_PROFILE_PAGE },
+    {
+      label: "User Profile",
+      desc: "Your activity",
+      link: generateUserProfileLink(1), // todo: replace with real address
+    },
     { label: "Articles", desc: "All articles", link: ALL_POSTS_PAGE },
     { label: "Wallet", desc: "Your wallet", link: WALLET_PAGE },
   ];
@@ -29,7 +33,7 @@ const Navigation = () => {
             <div className=" flex items-center">
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  {items.map(({ desc, link }) => {
+                  {items.map(({ label, link }) => {
                     return (
                       <Link
                         className={`${
@@ -40,7 +44,7 @@ const Navigation = () => {
                         to={link}
                         key={link}
                       >
-                        {desc}
+                        {label}
                       </Link>
                     );
                   })}

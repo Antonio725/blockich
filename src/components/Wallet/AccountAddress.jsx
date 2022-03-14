@@ -16,6 +16,7 @@ function AccountAddress() {
       method: "eth_requestAccounts",
     });
     const provider = new ethers.providers.Web3Provider(window.ethereum);
+
     setAccount(account);
 
     const add = "0x0c52555b34cfc05308400361e412c9c296e6dcf3";
@@ -34,6 +35,7 @@ function AccountAddress() {
       // treba spremit u state da se mogu manipulisat
       console.log(post[1].toString());
     }
+    console.log("arr", arr);
 
     setPosts(arr);
 
@@ -44,9 +46,10 @@ function AccountAddress() {
     <div className="justify-center">
       <h3 className="text-m">{account}</h3>
       {posts.map((item) => {
+        console.log(item);
         return (
-          <h2>
-            {item[2]}-{item[3]}
+          <h2 key={Math.random()}>
+            {item[3]}-{item[4]}
           </h2>
         );
       })}

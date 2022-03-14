@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import WalletBalance from "../wallet/WalletBalance";
 import { PostShortInfo } from "../PostShortInfo";
+import { PostRepository } from "../Shared/Repository/PostRepository";
 
 const HomePage = () => {
+  const postRepository = new PostRepository();
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const [fetchedPosts] = await Promise.all([await postRepository.getPosts()]);
+    setPosts(fetchedPosts);
+  };
+
   return (
     <div className="md:px-4 pb-4 bg-gray-50 justify-center">
       <div className="w-full md:w-4/5 mx-auto">
@@ -41,10 +54,9 @@ const HomePage = () => {
         <div className="bg-lightblue py-20 px-4">
           <div className="mx-auto max-w-6xl flex flex-col md:flex-row justify-center">
             <dl className="w-full">
-              <PostShortInfo postId={1} />
-              <PostShortInfo postId={2} />
-              <PostShortInfo postId={3} />
-              <PostShortInfo postId={4} />
+              {posts?.map((post) => (
+                <PostShortInfo key={post.getId()} post={post} />
+              ))}
             </dl>
           </div>
         </div>

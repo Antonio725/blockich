@@ -11,7 +11,7 @@ const NewPostForm = () => {
     file: null,
   });
 
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false); // todo: add loading
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.value });
@@ -23,7 +23,7 @@ const NewPostForm = () => {
     const files = document.getElementById("id_for_file").files;
     const fileName = files[0].name;
 
-    setLoading(true);
+    // setLoading(true);
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
 
@@ -33,7 +33,7 @@ const NewPostForm = () => {
     const contract = new ethers.Contract(add, SocialNetwork.abi, signer);
 
     await contract.createPost(state.title, state.description, fileName, fileID);
-    setLoading(false);
+    // setLoading(false);
   };
 
   return (

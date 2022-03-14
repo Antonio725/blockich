@@ -23,7 +23,8 @@ const ProfilePage = () => {
     setPosts(
       fetchedPosts.filter(
         (post) =>
-          post.getAuthor().lowercase === fetchedAccount.getId().lowercase
+          post.getAuthor().toLowerCase() ===
+          fetchedAccount.getId().toLowerCase()
       )
     );
   };

@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import "./newPostForm.css";
-import { putFile } from "../../web3-storage/put-files";
-import { ethers } from "ethers";
-import SocialNetwork from "../../abis/Test.json";
+import { PostRepository } from "../Shared/Repository/PostRepository";
 
 const NewPostForm = () => {
+  const postRepository = new PostRepository();
+
   const [state, setState] = useState({
     title: "",
     description: "",
-    file: null,
   });
 
   // const [loading, setLoading] = useState(false); // todo: add loading
@@ -19,21 +18,8 @@ const NewPostForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
     const files = document.getElementById("id_for_file").files;
-    const fileName = files[0].name;
-
-    // setLoading(true);
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const signer = provider.getSigner();
-
-    const add = "0x0c52555b34cfc05308400361e412c9c296e6dcf3";
-    const fileID = await putFile(files);
-
-    const contract = new ethers.Contract(add, SocialNetwork.abi, signer);
-
-    await contract.createPost(state.title, state.description, fileName, fileID);
-    // setLoading(false);
+    await postRepository.createPost(state, files);
   };
 
   return (

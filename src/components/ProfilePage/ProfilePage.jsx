@@ -18,9 +18,13 @@ const ProfilePage = () => {
       await accountRepository.getAccount(),
       await postRepository.getPosts(),
     ]);
+
     setAccount(fetchedAccount);
     setPosts(
-      fetchedPosts.filter((post) => post.getAuthor() === fetchedAccount.getId())
+      fetchedPosts.filter(
+        (post) =>
+          post.getAuthor().lowercase === fetchedAccount.getId().lowercase
+      )
     );
   };
 

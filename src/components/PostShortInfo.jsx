@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { generatePostPreviewLink } from "./Router/Routes";
+import Jdenticon from "react-jdenticon";
 
 export const PostShortInfo = ({ post }) => {
   return (
     <div className="flex w-full items-start space-x-4 md:space-x-8 ">
-      <div className="shadow-sm text-blue-700 text-l md:text-2xl font-semibold rounded-full h-6 w-10 md:h-12 md:w-20 flex items-center justify-center bg-blue-100">
-        LV
-      </div>
+      <Jdenticon
+        size="48"
+        value={post?.getAuthor()?.toLowerCase() ?? "unknown address"}
+      />
       <div className="w-full">
         <dt className="mb-4">
           <h3 className="text-xl font-semibold">{post.getTitle()}</h3>

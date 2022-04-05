@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { AccountRepository } from "../Shared/Repository/AccountRepository";
 import { PostRepository } from "../Shared/Repository/PostRepository";
 import { PostShortInfo } from "../PostShortInfo";
+import Jdenticon from "react-jdenticon";
 
 const ProfilePage = () => {
   const accountRepository = new AccountRepository();
@@ -34,7 +35,10 @@ const ProfilePage = () => {
       <div className="w-full md:w-4/5 mx-auto">
         <div className="relative h-24 md:h-56 bg-gradient-to-r from-green-400 to-blue-500">
           <div className="absolute shadow-sm text-blue-700 text-5xl md:text-7xl font-semibold rounded-full h-24 w-24 md:h-48 md:w-48 flex items-center justify-center bg-blue-100 -bottom-12 md:-bottom-24 left-8">
-            LV
+            <Jdenticon
+              size="170"
+              value={account?.getId()?.toLowerCase() ?? "unknown address"}
+            />
           </div>
         </div>
         <div className="flex justify-between md:pl-56 pt-12 md:pt-10 mx-4 md:mx-0">

@@ -7,6 +7,9 @@ import ProfilePage from "../ProfilePage/ProfilePage";
 import Home from "../Wallet/Home";
 import Install from "../Wallet/Install";
 import PreviewPage from "../PreviewPage/PreviewPage";
+import LogInPage from "../LogInPage/LogIn";
+import AdminPage from "../AdminPage/AdminPage";
+import AuthenticateForm from "../Authenticate/AuthenticateForm";
 import {
   ALL_POSTS_PAGE,
   HOME_PAGE,
@@ -15,6 +18,9 @@ import {
   POST_PREVIEW_PAGE,
   USER_PROFILE_PAGE,
   WALLET_PAGE,
+  LOG_IN_PAGE,
+  ADMIN_PAGE,
+  AUTHENTICATE,
 } from "./Routes";
 import PageNotFound from "../PageNotFound";
 import NewPostForm from "../NewPostForm/NewPostForm";
@@ -83,6 +89,24 @@ export const AppRouter = () => {
             <>
               <Navigation />
               <NewPostForm />
+            </>
+          }
+        />
+        <Route
+          path={AUTHENTICATE}
+          element={
+            <>
+              <Navigation />
+              <AuthenticateForm />
+            </>
+          }
+        />
+        <Route
+          path={ADMIN_PAGE}
+          element={
+            <>
+              <Navigation />
+              <AdminPage />
             </>
           }
         />

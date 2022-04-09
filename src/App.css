@@ -49,3 +49,15 @@ button {
 .mt-8 {
     margin-bottom: 80px;
 }
+
+.mainLogIn {
+   width: 30%;
+    margin: auto;
+    margin-top: 3em;
+}
+
+.logInLogo {
+    width: 10%;
+    margin-left: 75%;
+    margin-top: 1em;
+}

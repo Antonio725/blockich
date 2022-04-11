@@ -1,19 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./AuthenticateForm.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { db } from "../../Firebase";
+import { uid } from "uid";
+import { set, ref } from "firebase/database";
+import { AccountRepository } from "../Shared/Repository/AccountRepository";
 
 const AuthenticateForm = () => {
-  // const [date, setDate] = useState(new Date());
+  const accountRepository = new AccountRepository();
+  const [account, setAccount] = useState(null);
 
-  const [hover, setHover] = useState();
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  const handleMouseIn = () => {
-    setHover(true);
-  };
-
-  const handleMouseOut = () => {
-    setHover(false);
+  const fetchData = async () => {
+    const fetchedAccount = await accountRepository.getAccount();
+    setAccount(fetchedAccount);
   };
 
   const [startDate, setStartDate] = useState(new Date());
@@ -29,9 +33,19 @@ const AuthenticateForm = () => {
     setState({ ...state, [event.target.name]: event.target.value });
   };
 
+  const addUser = async () => {
+    const uuid = uid();
+    const user = {
+      address: account.getId(),
+      role: "guest",
+      hasApplied: false,
+    };
+    await set(ref(db, `user-${uuid}`), user);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    alert(state.name + " : Your request has been submitted! ");
+    await addUser();
   };
 
   return (

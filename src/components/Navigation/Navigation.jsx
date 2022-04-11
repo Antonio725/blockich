@@ -5,20 +5,21 @@ import { useLocation } from "react-router";
 import blockchainLogo from "../../assets/icons/blockchain.png";
 import {
   ADMIN_PAGE,
-  ALL_POSTS_PAGE, AUTHENTICATE,
+  ALL_POSTS_PAGE,
+  AUTHENTICATE,
   generateUserProfileLink,
   HOME_PAGE,
   NEW_POST_PAGE,
   WALLET_PAGE,
 } from "../Router/Routes";
 
-const Navigation = () => {
+const Navigation = ({ role = "guest" }) => {
   const items = [
     { label: "Home", desc: "Home page", link: HOME_PAGE },
     {
       label: "User Profile",
       desc: "Your activity",
-      link: generateUserProfileLink(1), // todo: replace with real address
+      link: generateUserProfileLink(1),
     },
     { label: "Articles", desc: "All articles", link: ALL_POSTS_PAGE },
     { label: "Wallet", desc: "Your wallet", link: WALLET_PAGE },
@@ -49,18 +50,22 @@ const Navigation = () => {
                       </Link>
                     );
                   })}
-                  <Link
-                    className="py-2 px-4 justify-end bg-pink-600 hover:bg-pink-700 focus:ring-pink-500 focus:ring-offset-pink-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full"
-                    to={NEW_POST_PAGE}
-                  >
-                    New Post
-                  </Link>
-                  <Link
+                  {["admin", "authenticated"].includes(role) && (
+                    <Link
+                      className="py-2 px-4 justify-end bg-pink-600 hover:bg-pink-700 focus:ring-pink-500 focus:ring-offset-pink-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full"
+                      to={NEW_POST_PAGE}
+                    >
+                      New Post
+                    </Link>
+                  )}
+                  {role === "notAuthenticated" && (
+                    <Link
                       className="py-2 px-4 justify-end bg-pink-600 hover:bg-pink-700 focus:ring-pink-500 focus:ring-offset-pink-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-full"
                       to={AUTHENTICATE}
-                  >
-                    Authenticate
-                  </Link>
+                    >
+                      Authenticate
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
@@ -76,12 +81,14 @@ const Navigation = () => {
                   Blockich
                 </div>
 
-                <Link
+                {role === "admin" && (
+                  <Link
                     className="admin text-gray-300 hover:text-gray-800 ml-7 -mr-8 px-3 py-2 rounded-md text-sm font-medium"
                     to={ADMIN_PAGE}
-                >
-                  Admin
-                </Link>
+                  >
+                    Admin
+                  </Link>
+                )}
               </div>
             </div>
           </div>

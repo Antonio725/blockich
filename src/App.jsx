@@ -32,8 +32,8 @@ function App() {
     return ourUser?.role || "guest";
   };
 
-  // return <AppRouter role={getCurrentUserRole()} />;
-  return <AppRouter role={"admin"} />;
+  return <AppRouter role={getCurrentUserRole()} />;
+  // return <AppRouter role={"admin"} />;
 }
 
 export default App;

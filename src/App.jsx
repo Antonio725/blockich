@@ -33,7 +33,6 @@ function App() {
   };
 
   return <AppRouter role={getCurrentUserRole()} />;
-  // return <AppRouter role={"admin"} />;
 }
 
 export default App;

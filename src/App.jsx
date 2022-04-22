@@ -1,14 +1,38 @@
-import Install from './components/Install'
-import Home from './components/Home'
-import './App.css'
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { AppRouter } from "./components/Router/AppRouter";
+import { get, query, ref } from "firebase/database";
+import { db } from "./Firebase";
+import { AccountRepository } from "./components/Shared/Repository/AccountRepository";
 
 function App() {
+  const accountRepository = new AccountRepository();
+  const [account, setAccount] = useState(null);
+  const [allUsers, setAllUsers] = useState([]);
 
-  if (window.ethereum) {
-    return <Home />
-  } else {
-    return <Install />
-  }
+  useEffect(() => {
+    fetchData();
+    getUsers();
+  }, []);
+
+  const fetchData = async () => {
+    const fetchedAccount = await accountRepository.getAccount();
+    setAccount(fetchedAccount);
+  };
+
+  const getUsers = async () => {
+    const readNewLogEntries = await get(query(ref(db, "/")));
+    setAllUsers(readNewLogEntries.val());
+  };
+
+  const getCurrentUserRole = () => {
+    const ourUser = Object.values(allUsers).find(
+      (user) => user.address === account?.getId()
+    );
+    return ourUser?.role || "guest";
+  };
+
+  return <AppRouter role={getCurrentUserRole()} />;
 }
 
-export default App
+export default App;

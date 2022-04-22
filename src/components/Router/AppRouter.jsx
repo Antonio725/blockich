@@ -7,6 +7,8 @@ import ProfilePage from "../ProfilePage/ProfilePage";
 import Home from "../Wallet/Home";
 import Install from "../Wallet/Install";
 import PreviewPage from "../PreviewPage/PreviewPage";
+import AdminPage from "../AdminPage/AdminPage";
+import AuthenticateForm from "../Authenticate/AuthenticateForm";
 import {
   ALL_POSTS_PAGE,
   HOME_PAGE,
@@ -15,11 +17,13 @@ import {
   POST_PREVIEW_PAGE,
   USER_PROFILE_PAGE,
   WALLET_PAGE,
+  ADMIN_PAGE,
+  AUTHENTICATE,
 } from "./Routes";
 import PageNotFound from "../PageNotFound";
 import NewPostForm from "../NewPostForm/NewPostForm";
 
-export const AppRouter = () => {
+export const AppRouter = ({ role = "guest" }) => {
   return (
     <Router>
       <Routes>
@@ -27,7 +31,7 @@ export const AppRouter = () => {
           path={PAGE_NOT_FOUND}
           element={
             <>
-              <Navigation />
+              <Navigation role={role} />
               <PageNotFound />
             </>
           }
@@ -36,7 +40,7 @@ export const AppRouter = () => {
           path={HOME_PAGE}
           element={
             <>
-              <Navigation />
+              <Navigation role={role} />
               <HomePage />
             </>
           }
@@ -45,7 +49,7 @@ export const AppRouter = () => {
           path={ALL_POSTS_PAGE}
           element={
             <>
-              <Navigation />
+              <Navigation role={role} />
               <AllPostsPage />
             </>
           }
@@ -54,7 +58,7 @@ export const AppRouter = () => {
           path={USER_PROFILE_PAGE}
           element={
             <>
-              <Navigation />
+              <Navigation role={role} />
               <ProfilePage />
             </>
           }
@@ -63,7 +67,7 @@ export const AppRouter = () => {
           path={WALLET_PAGE}
           element={
             <>
-              <Navigation />
+              <Navigation role={role} />
               {window.ethereum ? <Home /> : <Install />}
             </>
           }
@@ -72,7 +76,7 @@ export const AppRouter = () => {
           path={POST_PREVIEW_PAGE}
           element={
             <>
-              <Navigation />
+              <Navigation role={role} />
               <PreviewPage />
             </>
           }
@@ -81,8 +85,26 @@ export const AppRouter = () => {
           path={NEW_POST_PAGE}
           element={
             <>
-              <Navigation />
+              <Navigation role={role} />
               <NewPostForm />
+            </>
+          }
+        />
+        <Route
+          path={AUTHENTICATE}
+          element={
+            <>
+              <Navigation role={role} />
+              <AuthenticateForm />
+            </>
+          }
+        />
+        <Route
+          path={ADMIN_PAGE}
+          element={
+            <>
+              <Navigation role={role} />
+              <AdminPage />
             </>
           }
         />

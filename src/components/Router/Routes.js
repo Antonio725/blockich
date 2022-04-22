@@ -5,6 +5,9 @@ export const WALLET_PAGE = "/wallet";
 export const POST_PREVIEW_PAGE = "/preview/:postId";
 export const PAGE_NOT_FOUND = "*";
 export const NEW_POST_PAGE = "/new-post";
+export const LOG_IN_PAGE = "/login";
+export const ADMIN_PAGE = "/admin";
+export const AUTHENTICATE = "/auth";
 
 export const generatePostPreviewLink = (postId) => {
   return POST_PREVIEW_PAGE.replace(":postId", postId);
